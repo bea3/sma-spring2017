@@ -1,182 +1,380 @@
-Subreddit: It's... Almost Harvesting Season?
+Subreddit: Pirate Cove
 
-This is what you get for joining the Miyoshi, frankly.
-The Butter Lord
-Her, Egil, Bodo, and Donnachadh were my A team. Then Morgant, Agathinos, and Asbjourn were my supports.
-Seems like whoever gave you that quest just wants to get rid of you. 
-Yeah, I don't know what to tell you here... I shared it in the Perisno development chat, and we all agree that this is, in fact, a decent amount of wandering criminals.
+COMMENT #1
+I'm always around, yo. Just hidden. And, as it were, normally I'm fairly nocturnal.
 
-The first thing that came to mind here, was the thing where if you cheat your levels, bandit hideouts and such will scale with you, resulting in places being infested by a massive amount of bandits, but I don't know if this is the same deal. It could just be a huge coincidence, or a bug. I don't know what to say. Never seen this before.
-I'm not saying I agree with them, I just want to follow my family's rules to avoid bad blood.
-What I find the strangest is that with novels can have much more mature stuff than what's in a movie and be considered more appropriate for younger audiences. Harry Potter, if you've read the books, is the prime example of this.
-I accepted a quest to kill some bandits from some dude in a tavern for a reward of 30000 aurums. He never said anything about having to kill over 200000 of them.
-I'd like to take this moment to express distaste for mods that put Nervous Man in the most insane places possible in a village and try to make sure that I have to spend 10 minutes looking for him on my first try
->required some rereading to really understand all its layers
+COMMENT #2
+British, Orange hair, n0ice school outfit
 
-kek, /mbg/ is leaking
-#JeremusMasterRace
-Novice Fighter. Because when he becomes the surprise commander and defeats a superior army, you never suspect em.
-Whoever says its almost harvest seasoning.
-http://www.nexusmods.com/skyrim/mods/30200/?
-Progress of sorts. Warband port is playable but buggy.
 
-Pure Dark's M&B source code, with an equally old version of autoloot I put in, available here (earlier link may be down since I rearranged my Dropbox):
-https://dl.dropboxusercontent.com/u/43470430/Magic%20World%20ModuleSystem%20%5B1%5D.rar
+Literally Ginny Weasley 
 
-My attempt to port to Warband, as a working(ish) mod with source included, available here:
-https://dl.dropboxusercontent.com/u/43470430/Temp.rar
+COMMENT #3
+thx im an expert i know
 
-The mana, health, and horse health graphics all get weird, there's a CTD if you try to fight the undead, the spell selection interface gets a little wonky cause Warband already uses all those keys, and either my tester isn't high enough level to spawn any magic teachers or they aren't spawning. All that said, casting works and levels up, your companions cast if they're given wands like they're supposed to (so AI casting works), and the weight limit on casting works despite the error messages on startup. It's a solid base from which to ask for help from, so if you want this mod on Warband, help me get it there!
-It's great that when you demand money from a caravan you only get like hundred for every 15-20 men in your party, but if 3 diseased looters walk up to your 120 soldier army they want it ALL.
-daddy jeremus <3
-http://imgur.com/Uj3avk7
-I kill a shitload of people in this game, but hey now one should see a bikini :)
-Never played my self but I assume it's like the Zann invasion in Perisno.
-Haha, I was only joking but that is pretty funny. There does seem to be some weird standard games are held to that other mediums aren't. I think it is probably people growing up thinking games were just for kids so shouldn't contain anything even remotely 'mature' (except violence, violence is fine). That notion is likely changing at least. 
+COMMENT #4
+FuntimeWeb has arisen from his slumber once again.
 
-I second the dickplomacy suggestion. Nothing could go wrong!
-r/dnd
-Please check the CCO on the sidebar for Bannerlord.
-Let me just implement the last few codes, then i'm done and you can grab it first! Promise!
-King Graveth, long may he live 
-Ok thanks. So only one left then. Never did a siege but i guess it's a good tutorial then before the sandbox!
-Whoosh?
-Something happened in the world that caused the game to crash. By going back far enough all of the activity managed to change enough to avoid the crash.
-Don't get me started. They don't bat an eye at the beach or a swimming pool, or even movies, but they got freaked out over mass effect because of the [VI terminals](https://i.ytimg.com/vi/sHr9imXgRRM/maxresdefault.jpg). It's like they think that if a game has something remotely inappropriate in it it must be a sex simulator or something. I think it comes out of some kind of distrust of video games.
-Bannerlord confirmed.
-I hope your poor family never have to suffer the horror of a beach in summer or even a family friendly swimming pool. I once saw a butt cheek.
-Firentis, Jeremus, and Ymira are my inner circle.
-Uh
+COMMENT #5
+You sure it isn't Cory in the House?
 
-*Jarl Olaf*
-That's mean man
-Every time I run into those, I tell my men to hold their ground, go in by myself with a mace, and enslave every one of them.  Merely killing them isn't enough to properly rub their faces in their own stupidity.
-What did you think it was at first?
-Up you go
-The guy you're sent to villages to kill by lords
-*mutters under breath* King Harlaus...
-That's some [Robert Liston](https://en.wikipedia.org/wiki/Robert_Liston#Liston.27s_most_famous_cases) level shit right there.
->Distressed Farmer
+COMMENT #6
+BB doesn't skip leg day, god damn.
 
-kek
-I'm going to go ahead and lock this thread now. There's little to no evidence regarding this situation, so there's not many conclusions that can be drawn or discussions to be had.
+COMMENT #7
+Portal 2....NOOOOOOOOOOOO!!!!!!!!!!!
 
-To recap:
- 
-* A leak from the website of Denuvo shows an email from the Producer from Taleworlds informing about Denuvo. 
-* There is no confirmation whether Taleworlds has actually decided to use Denuvo or not.
-* **If** Denuvo ends up being implemented, game developers can decide how severe the protection will be. In the most strict situation all gamefiles would be locked and would not be moddable. ^^[Source](http://steamcommunity.com/app/208650/discussions/0/152391995415371233/) This would be bad for Bannerlord considering Warband's dependency on mods.
-* However, Talewords has stated multiple times over the years that they understand the role of mods in Warband, so they aim to make Bannerlord even easier to mod.
+COMMENT #8
+I've seen you when I was lurking.
 
-That's all we know so far. 
-I blame the people for pulling their money out of the banks and creating  inflation by rapidly purchasing butter. 
-If you keep calling him shitbird he will never join your campaign, give him a fucking break :(
-Solveig from Viking Conquest. In Storymode, she defends you from thugs that attack you while you're taking a shit behind a bush.
-http://mountandblade.wikia.com/wiki/Master_Blacksmiths_(Viking_Conquest)
-... Blame the dev it is him who is doing it
-I'm personally offended that you aren't using your helmet and first item slots.
-You are asking me to do the impossible, and thus I guess my claim is invalid. 
+COMMENT #9
+This just shows how accurate the BB model is.
 
-Pirates must be the worst enemy of gaming and steals so much money. GOG.com is not thriving and having immense sales of DRM free games. You got me. /s 
+Also, you left the pixel shadows lol.
 
-Sidenote: I agree that modding would most likely not be affected that much, but DRM is bad no matter how you spin it. 
+COMMENT #10
+Step 2: Scroll to ~~Yo-Kai Watch~~ LazyTown.
 
-edit: here is a nice read: http://www.pcgamer.com/pc-piracy-survey-results-35-percent-of-pc-gamers-pirate/
-The majority of pirates are either: demoing it and might actually buy it later, or would never be a potential customer and there is no loss for said person pirating. He is still breaking the law, but he would never have paid. 
-No, I think it had more to do with time/budget constraints and they ended up cutting it. They cut it back in 2013 with Rome 2
-I'm afraid I don't know what you're talking about.
-Yes
-Show me a source on both those claims there.
+LazyTown is the best anime.
 
-Not every game can be in the same situation as The Witcher 3.
-Show me evidence that that is likely to happen anytime soon. Don't buy the game is you don't like it then.
+COMMENT #11
+Personally I'm pretty certain he is. 
 
-Maybe you'd understand if it was your work being pirated.
-Next week.
-1 - Rescue Kidnapped Girls
+Mainly because "Management as always been made aware that the spring Bonnie animatronic has been noticeably moved" - Phone Guy 
 
-2 - Form army of captured maidens
+COMMENT #12
+The Phone is the creepiest one... (o_o')
 
-3 - Become destructive force
+COMMENT #13
+My regular computer can't even launch L4D2 or Portal 2. Or SFM anymore.
 
-4 - Depose Harlaus, set up his rival
+COMMENT #14
+C'mere you little scamp, lemme give you a hug :')
 
-5 - Capture her in battle, complete the cycle
-Yes...yes... i understand some of these words.
-Or it could be that the conscious decision to use denuvo meant they couldn't allow those things.
-Please stop downvoting him, he is right.
+COMMENT #15
+Thank *you* for writing!
 
-The developers are the ones who choose whether or not to make their games mod friendly, Denuvo is just a tool that can be used to accomplish that.
+COMMENT #16
+oh
 
-Also, I fucking hate Denuvo's [logo.](https://gyazo.com/b67fea17af22c6037d2db5b562fb5b91)
-On another note, I never realized how simple and easy it is to contact companies with business inquiries. You just shoot them a simple email and it's done... Seems archaic imo
-Yeah, theres plenty of weapon and armor to do it, and the NPCs could be lords. But the Factions. Who would they be? Im 16, so i played when right towards the end of 2007 and a little bit past that, and the map was the same, so i dont know if theres new "places" [the map](http://vignette4.wikia.nocookie.net/runescape2/images/a/ac/Rsmap_8_July_2005.jpg/revision/latest?cb=20101030001843) is large and could be done, but how would they be represented, as if i remember right, they werent all really big factions. The kingdoms had one town, and some visitable places. It would certainly be a challenge for a mod. Id be glad to help someone undertake it, but im more of an artist than a modder, id be the useless end considering the art is hardly the hard part. The faction balance would require some thinking by people with more time than I.
-Dickplomacy mod should do you well.
-King Ragnar
-Sure, I can't wait to lose access to this in a few years when Steam closes up shop. It's inevitable. No ability to play old versions, only the modding allowed by the developers. Sounds like a great, totally-pro-consumer move!
-Ask the tavernkeep. They usually know.
-Pirating is a non-issue. If developers make a great game, people will buy it. And people that never would have been able to buy it anyway, would not buy it, but maybe torrent it. 
+COMMENT #17
+The only thing I'd make more 'gross' is her arm. Baby's claw machine doesn't seem very gentle or blunt so her arm should be utterly shredded thus horribly scarred up.
+Edit: Woah! A mod! I'm really flattered!!
 
-The amount of people that pirate even though they can easily afford it is negligible compared to the loss of customers due to DRM. Just look at The Witcher 3 as an example on how to do it.. 
+COMMENT #18
+I don't think he's appeared more...
 
-edit: here is a nice read: http://www.pcgamer.com/pc-piracy-survey-results-35-percent-of-pc-gamers-pirate/
-The majority of pirates are either: demoing it and might actually buy it later, or would never be a potential customer and there is no loss for said person pirating. He is still breaking the law, but he would never have paid.
-If we want to drastically change everything about the game yes. But if we just want to for example do total conversion mods, changing everything art related or adding in assets, and also adding many new features. All you really need is the engine editor plus access to their scripting API. 
+COMMENT #19
+Springtrap is the combination of the words springlock and trap, as the person inside was trapped due to the springlock failures.
 
-It would be awesome to get full engine code like with Space Engineers, but that is not necessary for the majority of modding needed. 
+We have no confirmation that the suit killed anyone else besides the purple guy.
 
-You wouldn't need to recompile the entire game just to compile the external scripts that will run with the mod.. C# is a compiled language, but it can get compiled on it's own if it actually need to.
-In terms of story, you're almost done. But the next mission involves a freeform quest where you need to take or siege a castle and sieges are wayyy harder in viking conquest. It'll take a while.
-L'Aigle is probably the best bet, after With Fire and Sword. I've been struggling to find a good one, since Imperial Age is incomplete, abandoned and still doesn't have the right AI.
-I know that.  I've been doing that, so I know a few, but I would rather somebody just tell me the names of all of the cities that have them because I want a complete list of all of them.
-Hey, long time player here. There is much more to the game than most people realize, and it's all stuff you really need to get accustomed to or adapt too. Makes for really rewarding continued play. I understand the feeling, and get why you might think it's hacked.. but I've never once seen a hacker on the game. Footwork, timing, screen rotation, and an understanding of weapon reach are all very developed in many long time players. Keep practicing and use the hacking thoughts to fuel your rage and capture the hearts of online Calradia
+COMMENT #20
+SpringTrap is the nickname given to the Spring Bonnie suits when they were deemed unfit to be worn. FNAF3's minigames weren't the only time the Spring Bonnie suit killed someone.
 
-You sound like you have a nice head on your shoulders 
->Total War have never been very moddable ever.
+COMMENT #21
+[Here's the prologue](https://redd.it/5soeg1) You'll see her in 1 or 2 chapters. I'll try to post it tomorrow.
 
-...Total War games haven't had Denuvo on all their games. None of their games have been easy to mod, but when denuvo got added to Warhammer, it really did not add or remove any modding potential in the game. Warhammer is a really bad example on how denuvo destroys modding potential in a game. 
+COMMENT #22
+He's appeared more than the others, so I thought I'd bump him up a bit.
 
-The only limiting part about modding in Warhammer is the fact you can't mod in anything not related to Warhammer due to it being a games-workshop title, with all it's legal issues. 
-I will most definitely check it out!
+I got complaints last time I grouped BB and Mangle down with the other Toys.
 
-Though I probably won't be any good on multiplayer ;D
-Just demonstrates how modding and denuvo is incompatible
-They keep complimenting me, they are pretty great.
-plenty of sites made tests, and differences were minimal if at all.stop spreading misinformation please.
-dude, how many more hoops must you do?nowhere does it say they got help from the devs, that was the other group, and nowhere does it say denuvo made it extremely difficult.both claims of yours
-yes, there even was mods on day one for warhammer. Total War have never been very moddable ever. Denuvo really didn't change anything. 
-To get full access to the engine you would also need to recompile, no?
-Because they got help from the devs mate.... 
->and therefore help
+COMMENT #23
+Yes:
 
-blatant assumption.
+"Management as always been made aware that the spring Bonnie animatronic has been noticeably moved" - Phone guy 
 
-from their posts 
+"I did it, I found it, it was right where you said it would be." - Michael Afton
 
->D: Has Just Cause 3’s supposedly uncrackable Denuvo anti-tamper solution been an obstacle for the team? What other technical issues have you encountered if any?
+COMMENT #24
+rule 2 /s
 
-AG: It sure has been in the first weeks. It made analysing and reverse-engineering the game very hard but we have overcome most of those issues.
+COMMENT #25
+Springtrap is Purple guy+suit.He isn't Springbonnie, but rather Purple guy but trapped inside a suit.
 
-so yeah, it wasn't "extremly difficult", stop spreading misinformation
-Darthmod uses a custom launcher that properly injects something into the exe 
-You can find out by asking tavern owners.
-Don't go telling them that
-If we get access to the engine, and can script everything directly in the engine. Then we would never need a modified .exe because the main reason we need .exe for M&B and Skyrim(examples) is due to the lack of modding support. 
 
-I don't like DRM, but as long as modding is heavily heavily supported, I would be ok with it(not happy). 
-Hell yeah, man.  Firentis was my first companion in my very first game.  He was a tough warrior who became a very loyal vassal.  I'll always have a special place in my heart for Firentis. Then, Jeremus was my 2nd companion in my first game, so I really like him too, especially for his skills as a medic, but he can never replace Firentis.
-No, they did not.
-But they changed the exe with medieval 2 and rome... 
-It is exactly as moddable as rome II total war, the only ones that could be more moddable were medieval 2 and rome, but those tools were created by the community, not CA. CA never allowed changes on the exe which is what denuvo protects, its against the rules.
-http://kotaku.com/just-cause-3-is-getting-a-multiplayer-mod-1783159856 They had offical approval and therefore help... They wrote tons of blog entrys about even with help it was extremely difficult because of denuvo
-I would say its probably not cheating and more likely to be the steep learning curve present in multiplayer. See [this image](http://i.imgur.com/g5KOpAv.png?1) for better explanation. 
-Harvesting season and its perpetual looming presence.
-no they did not, you are mixing up the teams.
 
-those who got to work with them cancelled the project, as their "leader" had gotten hired by avalanche
-Yeah nearly not at all 
-total war warhammer can be modded just as much as the ones without denuvo.
-Just cause 3's modders got to work DIRECTLY with the devs, you are making my point
-The GoT versions are good for trade. Especially the northern fur trade. 
-In PoP, the Fierdsvain marshall once got stuck in place for a long time, with his war party behind him.  No one  would tell me where he was otherwise.  However, mine wasn't captured like yours was. He started moving after I attacked him (I wasn't a vassal) and became his prisoner.  He and his army moved normally again from that point on.
-just cause 3 literally has another game mode built into it, the multiplayer.
+COMMENT #26
+Why is BB above the other toys? He does jack.
+
+COMMENT #27
+Because most of them got deleted. :P
+
+COMMENT #28
+I like this concept.
+
+P-please don't be gross about this, r/fivenightsatfreddys
+
+COMMENT #29
+Why? You're confusing the animatronic for the character inside.
+
+SpringTrap is just a suit, being controlled by someone who went around attempting to kill a player, survived a fire, and is now going to be the star of the next game.
+
+COMMENT #30
+Don't forget Freddy! Mwahahah!
+
+COMMENT #31
+Any of the NateWantsToBattle songs. That man is amazing.
+
+COMMENT #32
+Isn't it obvious? He's "out of order" again. Actually it's just because his banner is gone.
+
+COMMENT #33
+Thank you.
+
+COMMENT #34
+XD
+
+COMMENT #35
+Yes.
+
+COMMENT #36
+Springtrap has more significance 
+
+COMMENT #37
+[Us toys can see everything.](https://www.youtube.com/watch?v=-2AWyT7lPpc)
+
+COMMENT #38
+summary of the comments below this.
+
+*Sprungtrip is in the B series.*
+
+c' mon, calm down. this is also partially a speculative list (not sayn' is bad, it's really good), so don't take this seriously.
+
+COMMENT #39
+Nice find.
+
+COMMENT #40
+Iz just joaje
+
+COMMENT #41
+what's the website you're programming, if you don't mind me asking?
+
+COMMENT #42
+We just know that he used a springlock suit. We don't know if he used Spring Bonnie or Fredbear, or even if there are more versions of the ones mentioned before.
+
+COMMENT #43
+now that i look at it, it does!
+
+COMMENT #44
+There's no way of telling.
+
+COMMENT #45
+Look at the 2nd image more closely
+
+Thank me later ( ͡° ͜ʖ ͡°)
+
+COMMENT #46
+its quite clearly not a fucking joke though is it. there's nothing that would give me the impression that the post is a joke, other than the joke flair. all you did was post three pictures and asked "should I be worried?" 
+
+COMMENT #47
+Thank you! :D
+
+COMMENT #48
+It's a joke, suppose to say good.
+
+COMMENT #49
+Yes, which is why they're grouped together in B Tier.
+
+COMMENT #50
+Mike is literally everyone theories.
+
+This was pre-fnaf:sl, but holy shit it was everywhere and widespread.
+
+Fnaf3 guard? Mike.
+
+Fnaf4 child? Mike.
+
+Foxy bully? Mike.
+
+And it always was just fueled by some "hurr durr he feels bad for brother!!" stuff.
+
+COMMENT #51
+B Tier = / = Irrelevant
+
+Read the parenthesis.
+
+COMMENT #52
+baby gived ice cream girl some steroids.
+
+COMMENT #53
+Needs a lot of work.
+
+COMMENT #54
+that arm is buff
+
+COMMENT #55
+no pls don cri
+
+COMMENT #56
+Doesn't mean he's not lore relevant.
+
+COMMENT #57
+>you fucking idiot.
+
+[Reminds me of a thing.](https://youtu.be/7ZFBTtSF5Zk?t=4m8s)
+
+COMMENT #58
+Everything I read so far is pretty damn good! Looking forwards to the next chapter!
+
+COMMENT #59
+Definitely between the "Good Guy Foxy" and the "Two Bites" theories.
+
+
+
+
+
+
+COMMENT #60
+Lol this is an awesome theory. But what I would like to know is, what is the Freddit Discord name and number? I wanna join it.
+
+COMMENT #61
+BALLOON BOY
+
+COMMENT #62
+No, this image is just from an update from the demo.
+
+COMMENT #63
+Did someone call the waambulance???
+
+COMMENT #64
+>Finally got a Netflix account
+
+Step 1: Go to the Kids TV Section.
+
+Step 2: Scroll to Yo-Kai Watch.
+
+Step 3: Binge.
+
+COMMENT #65
+I've had this idea for a while that the missing children have been dead/possessing the animatronics for so long that they have started believing they are the characters, and basically I see all of them as insane XD
+
+COMMENT #66
+I usually do check it, every day a matter a' fact. Just a few times a day. One in the morning, afternoon, and when I'm laying in bed. Even though I can't and never will forget about FNaF (I don't want to) but I think I do need a bit off a break. I'd be really glad if you could PM me. Thanks!
+
+COMMENT #67
+Bidybabs
+
+COMMENT #68
+CandyBall guy?
+
+COMMENT #69
+He's trying to kill the player.That's lore material right there.The fnaf 1 animatronics tried killing you in fnaf 1.Does that mean we get to ignore that fact?
+
+COMMENT #70
+If you could, that would be great.
+
+COMMENT #71
+Noice! Bye this is SpringDudddddd
+
+COMMENT #72
+I check here every so often and it's been pretty dead since the release of SL. I'm not a die hard fan but this place has been a graveyard..
+
+COMMENT #73
+What would the turrets be replace with?
+
+COMMENT #74
+https://www.youtube.com/watch?v=cphNpqKpKc4
+
+COMMENT #75
+In that case I'm not sure I'd be able to run it I can barely run Final Nights
+
+COMMENT #76
+Is the game out yet..? 
+
+COMMENT #77
+That Golden Freddy was made to solve World Piece (also every one of smikes theories)
+
+COMMENT #78
+Oh I can't wait!
+
+COMMENT #79
+Well, currently I'm writting an AU fanfic with her alive. You'll eventually see how is she in my story.
+
+COMMENT #80
+Wait a minute. Little Birdy. Chica.
+
+0___0
+
+COMMENT #81
+That's been there since the demo first released
+
+COMMENT #82
+That phone is so creepy. Why is it creepy?
+
+COMMENT #83
+>developer
+
+I just chortled
+
+COMMENT #84
+I didn't notice :(
+
+COMMENT #85
+*Why would he let his daughter near baby if he knew these were built in?*
+
+[Ugh...](https://www.youtube.com/watch?v=3O8J2locx5o)
+
+COMMENT #86
+Oh u so silly ;)
+
+William nicknames her "Little Birdy" because of it! She will always be his little birdy.....
+
+COMMENT #87
+Autocorrect hates me :(
+
+Also I didn't notice, I thought about making this post before all the attention happened
+
+COMMENT #88
+Something about the kids from the Missing Children Incident, you don't see much comics about those guys
+
+Other than Bonfim_BR's Children
+
+COMMENT #89
+> The next game
+
+The next game hasn't even been announced yet first of all. I'm not denying there will be one, but let's not jump to conclusions on what it's going to be about.
+
+Secondly, the question of who's inside of SpringTrap isn't relevant to SpringTrap himself, it's relevant to the 2 contenders, Michael and William, thus making them more important.
+
+
+COMMENT #90
+Robin is a very nice arm!
+
+Sorry, name, Freudian slip.
+
+COMMENT #91
+[This wasn't added in the update. It was in the original version of the demo.](https://i.gyazo.com/89c1331fc930e3e357557c7e09737bea.png) I've had it since november
+
+COMMENT #92
+yep :P Also, I might be able to provide some of the missing texture issues you're having :D
+
+COMMENT #93
+Is that Boob Boy?
+
+COMMENT #94
+lmao I saw that one. stupidest theory ever
+
+COMMENT #95
+oh boy what is it based on now?
+-
+
+COMMENT #96
+inb4 Emil has been waiting for this being posted to release the game.
+
+COMMENT #97
+because bb is a human animatronic and since who is inside of springtrap is a human it is bb
+
+COMMENT #98
+Of course the next game will focus on SpringTrap yet again, but until that game comes out I can't give him a proper judgement,
+
+And even then, all of that was gameplay, not lore. The only lore relevant thing was surviving the fire.
+
+COMMENT #99
+I understand an idea like this breaks a LOT of canon, but I wanted to draw it anyway as I've been thinking about it for awhile.
+I like to think she and Charlie from TSE would get along albeit a bit awkwardly. (Yes she does make alien jokes about her arm. Considering drawing something more gross looking with it, it's too tame.)
+
+COMMENT #100
+Oh Jesus Christ what is that 
+

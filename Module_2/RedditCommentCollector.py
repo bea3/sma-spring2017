@@ -21,7 +21,11 @@ subredditComments = subreddit.comments(limit=100)
 f = open('subreddit_comments.txt', 'w')
 f.write('Subreddit: ' + subreddit.title.encode("UTF-8") + "\n\n")
 
+counter = 1
+
 for comment in subredditComments:
-    f.write(comment.body.encode("UTF-8") + "\n")
+    f.write("COMMENT #" + str(counter) + "\n")
+    f.write(comment.body.encode("UTF-8") + "\n\n")
+    counter += 1
 
 f.close()

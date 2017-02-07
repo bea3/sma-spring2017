@@ -2,7 +2,7 @@
 # January 31, 2017
 # Module 2 HW
 
-#This script collects 100 tweets about Trump and dumps them into a file called trump_tweets.txt
+# This script collects 100 tweets about Trump and dumps them into a file called taylor_swift_tweets.txt
 
 import twitter
 
@@ -17,7 +17,11 @@ trump_tweets = api.GetSearch(term="taylorswift", result_type="tweet", count=100)
 
 #open up file and write tweets to it
 f = open('taylor_swift_tweets.txt', 'w')
+
+count = 1
 for x in range(len(trump_tweets)):
-    f.write(trump_tweets[x].text.encode("UTF-8") + "\n")
+    f.write("COMMENT #" + str(count) + "\n")
+    f.write(trump_tweets[x].text.encode("UTF-8") + "\n\n")
+    count += 1
 
 f.close()

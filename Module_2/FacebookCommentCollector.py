@@ -23,8 +23,9 @@ posts = graph.get_connections(id="19614945368_10154387193250369", connection_nam
 comments = posts.get("data")
 
 #write to a file
-f = open('taylor_swift_comments.txt', 'w')
+f = open('facebook_comments.txt', 'w')
 for x in range(len(comments)):
-    f.write(comments[x].get("message").encode("UTF-8") + "\n")
+    f.write("COMMENT #" + str(x) + "\n")
+    f.write(comments[x].get("message").encode("UTF-8") + "\n\n")
 
 f.close()
