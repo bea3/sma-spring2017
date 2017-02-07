@@ -2,7 +2,7 @@
 # January 31, 2017
 # Module 2 HW
 
-# This script get the Taylor Swift Twitter page, gets the first 10 followers, and collects the followers of those 10 collected followers.
+# This script get Christine's Twitter page, gets the first 10 followers, and collects the followers of those 10 collected followers.
 # Repeated twice.
 
 import twitter
@@ -11,11 +11,6 @@ consumer_key = "lWwcZksOC8MhoesnaZw6gLXrh"
 consumer_secret = "jZSHcmzZJc1po9Af77SauPAIEoC1HxQfAZlLVPwSKTvzn8EJGD"
 access_token = "755868887300780032-f7yUJ4uJ7Fl6nsChQQrmpIXdDjMkUKy"
 access_secret = "x5E7C1v8maJ5XB31mU3T4B8EeRdM5TyEUhEyFWtSDY9I2"
-
-# consumer_key = "FB7K67fqH4OTOJte8IvcbG0pF"
-# consumer_secret = "DbikkVO4aryhqqvpZ1TvdVzIG3P5qs7OhOlX5TPpeFFsOPdIto"
-# access_token = "755192173964857344-2iI4XySsQlTKxTCrwWDaho4H0xiRjS1"
-# access_secret = "bjlNh5m5CZ6AwGHAQaJIfwnH2Nm1QnJsTatF2MkO8xhF6"
 
 f = open('twitter_user_network.csv', 'w')
 f.write("from, to" + "\n")
