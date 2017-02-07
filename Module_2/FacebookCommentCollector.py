@@ -26,3 +26,5 @@ comments = posts.get("data")
 f = open('taylor_swift_comments.txt', 'w')
 for x in range(len(comments)):
     f.write(comments[x].get("message").encode("UTF-8") + "\n")
+
+f.close()

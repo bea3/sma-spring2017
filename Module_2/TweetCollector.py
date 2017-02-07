@@ -19,3 +19,5 @@ trump_tweets = api.GetSearch(term="taylorswift", result_type="tweet", count=100)
 f = open('taylor_swift_tweets.txt', 'w')
 for x in range(len(trump_tweets)):
     f.write(trump_tweets[x].text.encode("UTF-8") + "\n")
+
+f.close()

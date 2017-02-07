@@ -23,3 +23,5 @@ f.write('Subreddit: ' + subreddit.title.encode("UTF-8") + "\n\n")
 
 for comment in subredditComments:
     f.write(comment.body.encode("UTF-8") + "\n")
+
+f.close()
