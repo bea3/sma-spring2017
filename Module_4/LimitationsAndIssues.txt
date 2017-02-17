@@ -1,2 +1,4 @@
-From the Natural Language Processing, I noticed a couple limitations. One of the biggest limitations I noticed was the
-package's lack of understanding of punctuation.
+From performing the Natural Language Process, I noticed a couple limitations. One of the biggest limitations I noticed was the
+package's lack of understanding of punctuation. From the trump_processed.txt file, many punctuations, or at least unrecognizable
+characters, are still there. This may be valuable if they were emojis as it helps show sentiment, but most of them are just
+random characters. Overall, it's hard cleaning up Twitter data as there are so many different edge cases.
