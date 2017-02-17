@@ -1,0 +1,2 @@
+From the Natural Language Processing, I noticed a couple limitations. One of the biggest limitations I noticed was the
+package's lack of understanding of punctuation.
