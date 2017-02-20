@@ -1,0 +1,5 @@
+nltk
+string
+os
+
+# all corpora from NLTK
