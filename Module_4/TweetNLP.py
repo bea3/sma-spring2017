@@ -17,6 +17,7 @@ for f in all_files:
             all_tweets = myfile.read().split('\n')
 
         # 1. Tokenize
+        print "Tokenizing " + f + "..."
         tokenized_tweets = []
         for i in range(len(all_tweets)):
             tweet = all_tweets[i]
@@ -26,19 +27,23 @@ for f in all_files:
                 tokenized_tweets = tweet + tokenized_tweets
 
         # 2. Stemming
+        print "Stemming " + f + "..."
         stemmer = SnowballStemmer('english')
         stemmed_tweets = []
         for tweet in tokenized_tweets:
             stemmed_tweets.append(stemmer.stem(tweet))
 
         # 3. Lemmatization
+        print "Lemmatizing " + f + "..."
         lemmatizer = WordNetLemmatizer()
         lemmatized_tweets = []
         for tweet in stemmed_tweets:
             if tweet not in string.punctuation:
                 lemmatized_tweets.append(lemmatizer.lemmatize(tweet, 'v'))
 
-        f = open('./processed_files/' + f, 'w')
+        new_file = open('./processed_files/processed_' + f, 'w')
         for x in range(len(lemmatized_tweets)):
-            f.write(lemmatized_tweets[x].encode("UTF-8") + "\n")
-        f.close()
+            new_file.write(lemmatized_tweets[x].encode("UTF-8") + "\n")
+        new_file.close()
+
+        print "Saved in the processed_files directory\n"
