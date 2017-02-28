@@ -19,7 +19,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 def csv_from_excel():
     """
-    Gets the excel file in the current directory and creates a training dataset and test dataset in CSV format. It
+    Gets the excel file in the current directory and creates a training data set and test data set in CSV format. It
     partitions the first sheet of the excel file into about 80% training data and 20% test data.
     :return:
     """
