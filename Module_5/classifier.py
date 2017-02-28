@@ -1,11 +1,6 @@
 """
-Design a supervised machine learning classifier that will predict whether the impression of Facebook posts will be
-greater than 1,000 based on data such as the type of post, weekday or weekend, and weather. Implement the classifier and
-test it using Python. The data corpus contains data from Facebook on recent posts for a bicycle shop. The columns are
-Post Message, Message Type, Date and Time of Post, Number of Impression, Weather indicator for snow or rain, and
-weekday or weekend indicator for the post.
-
-Test your classifier and calculate precision and recall. Turn in Python code for the classifier.
+Beatrice Garcia
+February 27, 2017
 """
 
 import xlrd
@@ -13,16 +8,24 @@ import os
 import DecisionTree
 import csv
 import sys
-import numpy
 from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.metrics import *
+from sklearn.tree import DecisionTreeClassifier
 import random
+import pandas
+import numpy
 
 
-"""
-TODO
--get precision
-"""
-def csv_from_excel(excel_file):
+def csv_from_excel():
+    # get excel file
+    files = os.listdir(os.curdir)
+    excel_file = None
+
+    for f in files:
+        if ".xlsm" in f:
+            excel_file = f
+            break
+
     workbook = xlrd.open_workbook(excel_file)
     sheet = workbook.sheet_by_name('Key metrics')
     training_csv = open('training_data.csv', 'wb')
@@ -32,6 +35,7 @@ def csv_from_excel(excel_file):
 
     header = ['', 'type', 'more_than_1000_impressions', 'weather', 'weekend']
     training_writer.writerow(header)
+    testing_writer.writerow(header)
 
     training_id = 0
     testing_id = 0
@@ -39,9 +43,9 @@ def csv_from_excel(excel_file):
         row = sheet.row(x)
         row_values = []
 
-        # parition data into 20% testing data, 80% training data
+        # partition data into 20% testing data, 80% training data
         random_number = random.randint(1, 100)
-        if 1 <= random_number <= 10:
+        if 1 <= random_number <= 20:
             testing_id += 1
             row_values.append(testing_id)
         else:
@@ -62,11 +66,31 @@ def csv_from_excel(excel_file):
                     value = 0
 
             if y == 5:
-                print value
                 if value == 'Y':
                     value = 1
                 else:
                     value = 0
+
+            if y == 1:
+                if value == 'Photo':
+                    value = 0
+                elif value == 'Status':
+                    value = 1
+                elif value == 'Link':
+                    value = 2
+                elif value == 'Video':
+                    value = 3
+                elif value == 'SharedVideo':
+                    value = 4
+            if y == 4:
+                if value == 'Rain':
+                    value = 0
+                elif value == 'Snow':
+                    value = 1
+                elif value == 'Thunder':
+                    value = 2
+                elif value == '':
+                    value = 3
 
             # replace empty columns with "NA"
             if isinstance(value, basestring):
@@ -86,20 +110,11 @@ def csv_from_excel(excel_file):
     testing_csv.close()
 
 
-def decision_tree_classifier():
+def dtc2():
     reload(sys)
     sys.setdefaultencoding('utf-8')
 
-    # get excel file
-    files = os.listdir(os.curdir)
-    excel_file = None
-
-    for f in files:
-        if ".xlsm" in f:
-            excel_file = f
-            break
-
-    csv_from_excel(excel_file)
+    csv_from_excel()
 
     dt = DecisionTree.DecisionTree(
                 training_datafile='training_data.csv',
@@ -111,11 +126,8 @@ def decision_tree_classifier():
                 csv_cleanup_needed=True)
 
     dt.get_training_data()
-    dt.calculate_first_order_probabilities()
-    dt.calculate_class_priors()
-    dt.show_training_data()
     root_node = dt.construct_decision_tree_classifier()
-    root_node.display_decision_tree("   ")
+    # root_node.display_decision_tree("   ")
 
     tp = 0  # sum of true positives
     fp = 0  # sum of false positive
@@ -125,6 +137,8 @@ def decision_tree_classifier():
     print "\nClassifying with test data..."
     for line in open("test_data.csv"):
         csv_row = line.split(',')
+        if csv_row[1] == 'type':
+            continue
         test_sample = ['type=' + csv_row[1],
                        'weather=' + csv_row[3],
                        'weekend=' + csv_row[4].replace('\r\n', '')]
@@ -154,9 +168,9 @@ def decision_tree_classifier():
             tn += 1
 
     if tp == 0 and fp == 0:
-        print "\n\nPrecision = 0"
+        print "\nPrecision = 0"
     else:
-        print "\n\nPrecision = " + str(tp/(tp+fp))
+        print "\nPrecision = " + str(tp/(tp+fp))
 
     if tp == 0 and fn == 0:
         print "Recall = 0"
@@ -165,10 +179,60 @@ def decision_tree_classifier():
 
 
 def extra_trees_regressor():
-    etr = ExtraTreesRegressor(n_estimators=10, max_features=3, random_state=1)
+    csv_from_excel()
+
+    training_data = pandas.read_csv("training_data.csv")
+    testing_data = pandas.read_csv("test_data.csv")
+
+    etr = ExtraTreesRegressor(n_estimators=100, min_samples_leaf=10, random_state=1)
+    feature_cols = ["type", "weather", "weekend"]
+    target_col = ["more_than_1000_impressions"]
+
+    etr.fit(training_data[feature_cols], training_data[target_col])
+
+    predictions = etr.predict(testing_data[feature_cols])
+
+    mse = mean_squared_error(predictions, testing_data[target_col])
+    print "Mean squared error = " + str(mse)
+
+
+def decision_tree_classifier():
+    csv_from_excel()
+
+    training_data = pandas.read_csv("training_data.csv")
+    testing_data = pandas.read_csv("test_data.csv")
+
+    feature_cols = ["type", "weather", "weekend"]
+    target_col = ["more_than_1000_impressions"]
+
+    dtc = DecisionTreeClassifier(random_state=0)
+    dtc.fit(training_data[feature_cols], training_data[target_col])
+    predictions = dtc.predict(testing_data[feature_cols])
+
+    actual = []
+    for val in testing_data[target_col].values.tolist():
+        actual.append(val[0])
+    actual = numpy.array(actual)
+
+    print "Predictions"
+    print predictions
+    print "Actual"
+    print actual
+
+    precision = precision_score(testing_data[target_col], predictions, average='micro')
+    print "Precision = " + str(precision)
+
+    recall = recall_score(testing_data[target_col], predictions, average='micro')
+    print "Recall = " + str(recall)
+
 
 def main():
-
+    print "Predicting impressions using a Extra Tree Regressor..."
+    extra_trees_regressor()
+    print "Predicting impressions using a Decision Tree Classifier..."
+    decision_tree_classifier()
+    # print "Predicting impressions using a Decision Tree Classifier from another package..."
+    # dtc2()
 
 if __name__ == "__main__": main()
 
