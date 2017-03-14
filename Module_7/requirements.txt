@@ -1,0 +1,5 @@
+praw
+networkx
+matplotlib
+csv
+operator

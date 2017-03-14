@@ -1,14 +1,7 @@
-"""Extract a structured data set from a social media of your choice.  For example, you might have user_ID associated
-with forum_ID.  Use relational algebra to extract a social network (or forum network) from your structured data.
-Create a visualization of your extracted network.  What observations do you have in regards to the network structure of
-your data?
-"""
-
 # Beatrice Garcia
 # March 12, 2017
 # Module 7
 # Homework, Part 2
-
 
 import praw
 import networkx as nx
@@ -18,9 +11,12 @@ import operator
 
 
 def get_data():
+    """
+    Get submissions and comments in the JHU subreddit and writes it to a CSV file.
+    """
     client_id = "kPDOhCZFMTgJEw"
     client_secret = "nXHOnn76HS1DsSJ_CrHI-C-k2RU"
-    user_agent ="webapp:philbert:v.1.0.0"
+    user_agent = "webapp:philbert:v.1.0.0"
     username = "turtlephilbert"
 
     reddit = praw.Reddit(client_id=client_id,
@@ -28,20 +24,26 @@ def get_data():
                          user_agent=user_agent, username=username)
 
     # get JHU subreddit and its comments
-    subreddit = reddit.subreddit('climbing')
+    subreddit = reddit.subreddit('jhu')
 
+    # write submissions and its comments in a CSV file
     with open('data.csv', 'wb') as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(['forum_id', 'submission_id', 'comment_id', 'user_id', 'user'])
 
         submissions = subreddit.submissions()
         for submission in submissions:
-            for comment in submission.comments:
-                info = [subreddit.id, submission.id, comment.id, comment.author.id, comment.author]
-                writer.writerow(info)
+            if submission is not None:
+                for comment in submission.comments:
+                    if comment is not None:
+                        info = [subreddit.id, submission.id, comment.id, comment.author.id, comment.author]
+                        writer.writerow(info)
 
 
 def visualize_data():
+    """
+    Read the CSV and use Networkx to visualize the  graph.
+    """
     G = nx.Graph()
 
     # read csv and add edges
@@ -50,37 +52,33 @@ def visualize_data():
         for row in reader:
             G.add_edge(row[0].strip(), row[1].strip())
             G.add_edge(row[1].strip(), row[2].strip())
+            G.add_edge(row[2].strip(), row[4].strip())
 
-    # calculate betweenness centraliy
-    betweenness = nx.betweenness_centrality(G, endpoints=True)
+    # calculate degree centrality
+    degree = nx.degree_centrality(G)
 
     # sort by greatest score to least
-    sorted_betweenness = sorted(betweenness.items(), key=operator.itemgetter(1))
+    sorted_degree = sorted(degree.items(), key=operator.itemgetter(1))
 
     labels = {}
-    other_nodes = {}
-    central_nodes = {}
-    count = 0
+    all_nodes = {}
 
     # separate nodes from the top 5 most central nodes and the rest and get the labels
     for x in range(G.number_of_nodes()):
-        node = sorted_betweenness[x]
+        node = sorted_degree[x]
         node_name = node[0]
         node_score = node[1]
         labels[node_name] = node_name
-        central_nodes[node_name] = node_score
-        count += 1
+        all_nodes[node_name] = node_score
 
     # positions for all nodes
     pos = nx.spring_layout(G)
 
     # draw labels
-    nx.draw_networkx_labels(G, pos, labels, font_size=14, font_family='sans-serif')
+    nx.draw_networkx_labels(G, pos, labels, font_size=10, font_family='sans-serif')
 
     # draw the most central nodes, the rest of the nodes, and the edges
-    nx.draw_networkx_nodes(G, pos, nodelist=central_nodes.keys(), node_color='b',
-                           node_size=[v * 1000 for v in central_nodes.values()])
-    nx.draw_networkx_nodes(G, pos, nodelist=other_nodes.keys(), node_size=[v * 1000 for v in other_nodes.values()])
+    nx.draw_networkx_nodes(G, pos, nodelist=all_nodes.keys(), node_color='b', node_size=[v * 1000 for v in all_nodes.values()])
     nx.draw_networkx_edges(G, pos, width=1.0, alpha=0.5)
 
     # save and display graph
@@ -88,10 +86,10 @@ def visualize_data():
     plt.savefig("garcia_hw7.png")
     plt.show()
 
+
 def main():
     # get_data()
     visualize_data()
 
 
 if __name__ == "__main__": main()
-

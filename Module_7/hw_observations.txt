@@ -1,0 +1,2 @@
+The network structure of the Reddit data in my CSV is of similar structure of a foreign key table in a database.
+The columns include: subreddit_id, submission_id, comment_id, user_id, and the user name.
