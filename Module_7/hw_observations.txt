@@ -1,2 +1,4 @@
 The network structure of the Reddit data in my CSV is of similar structure of a foreign key table in a database.
-The columns include: subreddit_id, submission_id, comment_id, user_id, and the user name.
+The columns include: subreddit_id, submission_id, comment_id, user_id, and the user name. I noticed that overall, in the
+Reddit network, within a subreddit, there are a lot of interconnections within the submissions, comments, and their users.
+I assume this is because users will go through several of the submissions and make comments about them.
