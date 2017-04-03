@@ -95,3 +95,6 @@ ENV/
 # Intellij
 .idea/
 
+# Misc
+*.txt
+*.zip
