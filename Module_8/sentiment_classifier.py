@@ -4,8 +4,11 @@
 
 import praw
 import twitter
+import os
 from nltk.sentiment import SentimentAnalyzer
 
+tweets = []
+rcomments = []
 
 def get_reddit_comments():
     client_id = "kPDOhCZFMTgJEw"
@@ -27,6 +30,7 @@ def get_reddit_comments():
 
     for comment in subredditComments:
         f.write(comment.body.encode("UTF-8") + "\n\n")
+        rcomments.append(comment.body.encode("UTF-8"))
         counter += 1
 
     f.close()
@@ -49,13 +53,21 @@ def get_tweets():
     count = 1
     for x in range(len(trump_tweets)):
         f.write(trump_tweets[x].text.encode("UTF-8") + "\n")
+        tweets.append(trump_tweets[x].text.encode("UTF-8"))
         count += 1
 
     f.close()
 
 
 def main():
+    # Deletes old files to get new data
+    filelist = [f for f in os.listdir(".") if f.endswith(".txt")]
+    for f in filelist:
+        os.remove(f)
+
+    # Gets data
     get_reddit_comments()
+    get_tweets()
 
 
 if __name__ == "__main__": main()
