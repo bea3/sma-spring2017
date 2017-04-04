@@ -9,15 +9,15 @@ import urllib2
 import json
 from unidecode import unidecode
 
-CKEY = 'z4BiE0xRkkbFO7EzMC5sF6Utf'
-CSECRET = 'fsAng9rf8ubixgg7SCdJNECEo1futVHCcAIQqApRZGwR0Sw1ZU'
-ATOKEN = '356578335-M92lqZaoGuGmp3gNRLi8DDpNTz6Qv62KPY5WJz0Q'
-ATOKENSECRET = 'VQNFrxu905eZMHbIZhatUupRkkdFfNv2ofAYywGM6LO0M'
+CKEY = "FhiyBRb0cz4zOoDfcHNVOyBDS"
+CSECRET = "Q7MsbrPbFVzrwztW2KFH5JDGVpnSMhBlztwfJrLQeIGG591LST"
+ATOKEN = "755868887300780032-FqY1RAUiznqmVMToIotldxavDEKdEe9"
+ATOKENSECRET = "DV3O14tD9nTR1cVThyY1wriLMarXQoNQoudbZMHnUxYBP"
 
 URL_SENTIMENT140 = "http://www.sentiment140.com/api/bulkClassifyJson"
 
 POLITICIAN = "Trump"
-LIMIT = 2500
+LIMIT = 100
 LANGUAGE = 'es'
 
 
@@ -71,7 +71,7 @@ def main():
     print "Positive Tweets: "
     for tweet in positive_tweets_text:
         print tweet
-    print "Negative Tweets: " + negative_tweets_text
+    # print "Negative Tweets: " + negative_tweets_text
 
 
 if __name__ == '__main__':

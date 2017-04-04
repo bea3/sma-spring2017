@@ -1,0 +1,8 @@
+Please note the negative_tweets.json and positive_tweets.json are modified version of the original samples from Python
+NLTK's #75 Twitter Samples (http://www.nltk.org/nltk_data/).
+
+Limitations of this sentiment classifier include:
+- Sarcasm
+- Repeated phrases with not much context (i.e. ORIOLES NUMBER ONE! ORIOLES NUMBER ONE! ORIOLES NUMBER ONE!)
+- Very slow
+- Using the same training data set for Twitter as with Reddit
