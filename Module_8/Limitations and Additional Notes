@@ -6,3 +6,5 @@ Limitations of this sentiment classifier include:
 - Repeated phrases with not much context (i.e. ORIOLES NUMBER ONE! ORIOLES NUMBER ONE! ORIOLES NUMBER ONE!)
 - Very slow
 - Using the same training data set for Twitter as with Reddit
+- Does not account for emojis, pictures, or links included
+- Neutral statements, such as strictly information-passing statements

@@ -34,7 +34,7 @@ def get_reddit_comments():
 
     # get an Orioles-related subreddit
     subreddits = reddit.subreddits.search_by_name("orioles", include_nsfw=False)
-    subredditComments = subreddits[0].comments(limit=10)
+    subredditComments = subreddits[0].comments(limit=50)
 
     for comment in subredditComments:
         rcomments.append(comment.body.encode("UTF-8"))
@@ -51,7 +51,7 @@ def get_tweets():
     # set up access and get tweets
     api = twitter.Api(consumer_key=consumer_key, consumer_secret=consumer_secret, access_token_key=access_token,
                       access_token_secret=access_secret)
-    retrieved_tweets = api.GetSearch(term="orioles", result_type="tweet", count=15)
+    retrieved_tweets = api.GetSearch(term="orioles", result_type="tweet", count=50)
 
     for x in range(len(retrieved_tweets)):
         orioles_tweet.append(retrieved_tweets[x].text.encode("UTF-8"))
@@ -131,7 +131,7 @@ def main():
         writer.writerow(['Result', 'Tweet'])
         for orioles_tweet in orioles_tweet:
             result = classifier.classify(extract_features(orioles_tweet.split()))
-            writer.writerow([result, orioles_tweet.trim()])
+            writer.writerow([result, orioles_tweet])
             pprint.pprint([result, orioles_tweet])
 
     with open('classified_orioles_reddit_comments.csv', 'wb') as csvfile:
@@ -139,7 +139,7 @@ def main():
         writer.writerow(['Result', 'Comment'])
         for comment in rcomments:
             result = classifier.classify(extract_features(comment.split()))
-            writer.writerow([result, comment.trim()])
+            writer.writerow([result, comment])
             pprint.pprint([result, comment])
 
 
