@@ -97,3 +97,4 @@ ENV/
 
 # Misc
 *.zip
+.Rproj.user
