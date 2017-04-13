@@ -5,10 +5,8 @@
 import twitter
 import gensim
 import nltk
-import pprint
 import string
 import pyLDAvis.gensim
-import IPython
 
 consumer_key = "FhiyBRb0cz4zOoDfcHNVOyBDS"
 consumer_secret = "Q7MsbrPbFVzrwztW2KFH5JDGVpnSMhBlztwfJrLQeIGG591LST"
@@ -44,20 +42,18 @@ for t in tweets:
 
 # tokenize tweets
 tokens = nltk.tokenize.word_tokenize(all_words)
-
 tokens = [tokens]
 
-################################
-
+# create dictionary
 dictionary = gensim.corpora.Dictionary(tokens)
-
 corpus = [dictionary.doc2bow(text) for text in tokens]
 
+# create model
 lda = gensim.models.LdaModel(corpus, id2word=dictionary, alpha='auto', num_topics=10)
 
-topic_vis = pyLDAvis.gensim.prepare(lda, corpus, dictionary)
-
-pyLDAvis.display(topic_vis)
+# visualization
+vis = pyLDAvis.gensim.prepare(lda, corpus, dictionary)
+pyLDAvis.show(vis) #shows on the web
 
 
 
