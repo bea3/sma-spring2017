@@ -3,7 +3,7 @@ import pprint
 import operator
 
 urls = {}
-with open('04-18-17/trump_Tue-Apr-18-20:44:06-2017.csv', 'rb') as csvfile:
+with open('trump.csv', 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter='|')
     for row in reader:
         text = row[3]
