@@ -1,13 +1,12 @@
-from tweepy.streaming import StreamListener
-from tweepy import OAuthHandler
-from tweepy import Stream
-import csv
 import json
 import pprint
-import time
 import sys
-import os
+import time
+
 from arango import ArangoClient
+from tweepy import OAuthHandler
+from tweepy import Stream
+from tweepy.streaming import StreamListener
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -21,6 +20,7 @@ writer = None
 f = None
 csv_name = ""
 db_name = "sma-proj"
+tweets = None
 
 # Initialize the client for ArangoDB
 client = ArangoClient(
@@ -31,12 +31,12 @@ client = ArangoClient(
     password='',
     enable_logging=True
 )
-db = client.database(db_name)
-tweets = db.collection('tweets')
+
 
 class StdOutListener(StreamListener):
     global f
     global writer
+    global tweets
 
     def on_data(self, data):
         global count
@@ -107,7 +107,8 @@ class StdOutListener(StreamListener):
                 source = ""
 
             try:
-                in_reply_name = data['in_reply_to_screen_name'].encode("utf-8") if data['in_reply_to_screen_name'] is not None else ""
+                in_reply_name = data['in_reply_to_screen_name'].encode("utf-8") if data[
+                                                                                       'in_reply_to_screen_name'] is not None else ""
                 in_reply_name = clean_text(in_reply_name)
             except KeyError or UnicodeEncodeError:
                 print ("Error with tweet reply-to-screen-name: ")
@@ -144,9 +145,24 @@ class StdOutListener(StreamListener):
             except KeyError:
                 place = ""
 
-            row = [id, user_id, user_name, text, in_reply_status_id, fave_count, coordinates, source,
-                   in_reply_name, in_reply_user_id, is_rt, rt_count, geo, time, place]
-            writer.writerow(row)
+            # write_tweet([id, user_id, user_name, text, in_reply_status_id, fave_count, coordinates, source,
+            #        in_reply_name, in_reply_user_id, is_rt, rt_count, geo, time, place])
+
+            tweets.insert({'tweet_id': id,
+                           'user_id': user_id,
+                           'user_name': user_name,
+                           'text': text,
+                           'in_reply_to_status_id': in_reply_user_id,
+                           'favorite_count': fave_count,
+                           'source': source,
+                           'in_reply_to_screen_name': in_reply_name,
+                           'is_retweet': is_rt,
+                           'retweet_count': rt_count,
+                           'in_reply_to_user_id': in_reply_user_id,
+                           'created_at': time,
+                           'place': place,
+                           'geo': geo,
+                           'coordinates': coordinates})
 
             # count += 1
 
@@ -167,9 +183,13 @@ def close_csv():
     f.close()
 
 
+def write_tweet(info_list):
+    global writer
+    writer.writerow(info_list)
+
+
 def clean_text(text):
     text = text.decode()
-    # text = text.decode("utf-8")
     text = text.encode('ascii', 'ignore')
     text = text.encode("utf-8")
     text = text.strip()
@@ -182,17 +202,37 @@ def main():
     global writer
     global count
     global csv_name
+    global tweets
 
-    # hash index - good for quick access
-    # skiplist index - keeps it sorted
-    # persisted index - keeps it in memory, therefore doesn't have to be rebuilt in memory
-    # geo index - keeps geo:
-    # { "latitude": 50.9406645, "longitude": 6.9599115 }
-    # or { "coords": [ 50.9406645, 6.9599115 ] }
-    # fulltext - used to index all words
+    date_str = time.strftime('%m-%d-%Y')
+    date_str = date_str.replace(' ', '-')
 
-    # # create CSV
-    # csv_name = 'top10'
+    try:
+        db = client.create_database(db_name)
+    except:
+        db = client.database(db_name)
+
+    try:
+        tweets = db.create_collection('tweets-' + date_str)
+    except:
+        tweets = db.collection('tweets-' + date_str)
+
+    tweets.add_hash_index(fields=['tweet_id'])
+    tweets.add_hash_index(fields=['user_id'])
+    tweets.add_hash_index(fields=['in_reply_to_status_id'])
+    tweets.add_hash_index(fields=['in_reply_to_user_id'])
+    tweets.add_fulltext_index(fields=['user_name'])
+    tweets.add_fulltext_index(fields=['text'])
+    tweets.add_fulltext_index(fields=['source'])
+    tweets.add_fulltext_index(fields=['in_reply_to_screen_name'])
+    tweets.add_fulltext_index(fields=['is_retweet'])
+    tweets.add_skiplist_index(fields=['favorite_count'])
+    tweets.add_skiplist_index(fields=['retweet_count'])
+    tweets.add_skiplist_index(fields=['created_at'])
+    tweets.add_skiplist_index(fields=['place'])
+    tweets.add_geo_index(fields=['geo'])
+    tweets.add_geo_index(fields=['coordinates'])
+
     # keyword = ['https://t.co/r8uFthZWBj',
     #            'https://t.co/sRHak6gnUT',
     #            'https://t.co/DjeMPPHKu4',
@@ -204,10 +244,12 @@ def main():
     #            'https://t.co/CtX7XQZmZH',
     #            'https://t.co/x59B9R3fji',
     #            'https://t.co/cQiIXTL5N4']
+    keyword = ['trump']
+
+    # # create CSV
+    # csv_name = 'top10'
     #
     # csv_name = csv_name + ".csv"
-    # date_str = time.strftime('%m-%d-%Y')
-    # date_str = date_str.replace(' ', '-')
     #
     # if not os.path.exists(date_str):
     #     os.makedirs(date_str)
@@ -223,15 +265,15 @@ def main():
     #           'in_reply_to_user_id', 'is_retweet', 'retweet_count', 'geo', 'created_at', 'place']
     # writer.writerow(header)
     #
-    # print "Getting tweets..."
-    #
-    # l = StdOutListener()
-    # auth = OAuthHandler(consumer_key, consumer_secret)
-    # auth.set_access_token(access_token, access_secret)
-    # stream = Stream(auth, l)
-    #
-    # # This line filter Twitter Streams to capture data by the keywords
-    # stream.filter(track=keyword)
+    print "Getting tweets..."
+
+    l = StdOutListener()
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_secret)
+    stream = Stream(auth, l)
+
+    # This line filter Twitter Streams to capture data by the keywords
+    stream.filter(track=keyword)
 
 
 if __name__ == '__main__':
