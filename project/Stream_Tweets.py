@@ -152,7 +152,7 @@ class StdOutListener(StreamListener):
                            'user_id': user_id,
                            'user_name': user_name,
                            'text': text,
-                           'in_reply_to_status_id': in_reply_user_id,
+                           'in_reply_to_status_id': in_reply_status_id,
                            'favorite_count': fave_count,
                            'source': source,
                            'in_reply_to_screen_name': in_reply_name,
@@ -163,12 +163,6 @@ class StdOutListener(StreamListener):
                            'place': place,
                            'geo': geo,
                            'coordinates': coordinates})
-
-            # count += 1
-
-            # if count >= 5000:
-            #     close_csv()
-            #     return False
         return True
 
     def on_error(self, status):
@@ -207,6 +201,7 @@ def main():
     date_str = time.strftime('%m-%d-%Y')
     date_str = date_str.replace(' ', '-')
 
+    print "Setting up database..."
     try:
         db = client.create_database(db_name)
     except:
@@ -233,18 +228,17 @@ def main():
     tweets.add_geo_index(fields=['geo'])
     tweets.add_geo_index(fields=['coordinates'])
 
-    # keyword = ['https://t.co/r8uFthZWBj',
-    #            'https://t.co/sRHak6gnUT',
-    #            'https://t.co/DjeMPPHKu4',
-    #            'https://t.co/xdQ5eOGh14',
-    #            'https://t.co/plqoSMaixV',
-    #            'https://t.co/XZDLFK7E0X',
-    #            'https://t.co/uDxnyXZp1p',
-    #            'https://t.co/BkhSU8PKfs',
-    #            'https://t.co/CtX7XQZmZH',
-    #            'https://t.co/x59B9R3fji',
-    #            'https://t.co/cQiIXTL5N4']
-    keyword = ['trump']
+    keyword = ['https://t.co/r8uFthZWBj',
+               'https://t.co/sRHak6gnUT',
+               'https://t.co/DjeMPPHKu4',
+               'https://t.co/xdQ5eOGh14',
+               'https://t.co/plqoSMaixV',
+               'https://t.co/XZDLFK7E0X',
+               'https://t.co/uDxnyXZp1p',
+               'https://t.co/BkhSU8PKfs',
+               'https://t.co/CtX7XQZmZH',
+               'https://t.co/x59B9R3fji',
+               'https://t.co/cQiIXTL5N4']
 
     # # create CSV
     # csv_name = 'top10'
@@ -271,8 +265,6 @@ def main():
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
     stream = Stream(auth, l)
-
-    # This line filter Twitter Streams to capture data by the keywords
     stream.filter(track=keyword)
 
 

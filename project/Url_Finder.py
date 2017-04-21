@@ -1,14 +1,11 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
-import csv
 import json
 import pprint
-import time
 import sys
-import operator
 from arango import ArangoClient
-import re
+import top_urls
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -21,10 +18,10 @@ access_secret = "DV3O14tD9nTR1cVThyY1wriLMarXQoNQoudbZMHnUxYBP"
 writer = None
 f = None
 count = 0
-csv_name = ""
 db_name = "sma-proj"
 trump = None
 db = None
+collection_name = "trump"
 
 client = ArangoClient(
     protocol='http',
@@ -43,6 +40,8 @@ class StdOutListener(StreamListener):
     def on_data(self, data):
         global count
         global trump
+        global collection_name
+
         data = json.loads(data)
 
         try:
@@ -171,14 +170,13 @@ class StdOutListener(StreamListener):
             count += 1
 
             if count >= 100000:
-                # close_csv()
-                get_top_urls()
+                print collection_name
+                top_urls.get_top_urls(collection_name)
                 return False
         return True
 
     def on_error(self, status):
-        # close_csv()
-        get_top_urls()
+        top_urls.get_top_urls(collection_name)
         print status
 
 
@@ -191,81 +189,12 @@ def clean_text(text):
     return text
 
 
-def close_csv():
-    global f
-    print "Closing CSV"
-    f.close()
-
-
-def get_top_urls():
-    global csv_name
-
-    print "Getting Top Urls..."
-
-    urls = {}
-
-    # with open(csv_name, 'rb') as csvfile:
-    #     reader = csv.reader(csvfile, delimiter='|')
-    #     for row in reader:
-    #         text = row[3]
-    #         text_urls = [word for word in text.split() if word.startswith('https://t.co/')]
-    #         for t in text_urls:
-    #             if t not in urls.keys():
-    #                 urls[t] = 1
-    #             else:
-    #                 urls[t] += 1
-    #
-    # sorted_x = sorted(urls.items(), key=operator.itemgetter(1), reverse=True)
-    # pprint.pprint(sorted_x)
-
-    global db
-    cursor = db.aql.execute('FOR tweet IN tweets filter tweet.text like "%https:\/\/t.co\/%" return '
-                            '{text: tweet.text}')
-    batch = cursor.batch()
-
-    for doc in batch:
-        regex_pattern = re.compile('https://t.co/(.*)')
-        doc = doc['text']
-        doc = clean_text(doc)
-        matches = re.findall(regex_pattern, doc)
-        matches = matches[0].split()
-        for i in range(len(matches)):
-            url = matches[i]
-            if i == 0 or url.startswith('https://t.co/'):
-                if url.startswith('https://t.co/'):
-                    url = url.replace('https://t.co/', '')
-                if url not in urls.keys():
-                    urls[url] = 1
-                else:
-                    urls[url] += 1
-
-    while cursor.has_more():
-        batch = cursor.next()
-        for doc in batch:
-            doc = doc['text']
-            doc = clean_text(doc)
-            regex_pattern = re.compile('https://t.co/(.*)')
-            text_urls = re.findall(regex_pattern, doc)
-            for t in text_urls:
-                if t not in urls.keys():
-                    urls[t] = 1
-                else:
-                    urls[t] += 1
-
-    sorted_x = sorted(urls.items(), key=operator.itemgetter(1), reverse=True)
-    pprint.pprint(sorted_x)
-
-
 def main():
     global f
     global writer
     global count
-    global csv_name
     global trump
     global db
-
-    date_str = time.strftime('%m-%d-%Y')
-    date_str = date_str.replace(' ', '-')
 
     try:
         db = client.create_database(db_name)
@@ -273,9 +202,9 @@ def main():
         db = client.database(db_name)
 
     try:
-        trump = db.create_collection('trump-' + date_str)
+        trump = db.create_collection(collection_name)
     except:
-        trump = db.collection('trump-' + date_str)
+        trump = db.collection(collection_name)
 
     trump.add_hash_index(fields=['tweet_id'])
     trump.add_hash_index(fields=['user_id'])
@@ -294,19 +223,6 @@ def main():
     trump.add_geo_index(fields=['coordinates'])
 
     keyword = ["trump"]
-
-    # # create the CSVs
-    # f = open(csv_name, 'wb')
-    # csv_name = "trump.csv"
-    # writer = csv.writer(f, delimiter='|', quoting=csv.QUOTE_MINIMAL)
-    #
-    # print "CSV Name: " + csv_name
-    #
-    # # write information into CSVs
-    # header = ['id', 'user_id', 'user_name', 'text', 'contributors', 'in_reply_to_status_id',
-    #           'favorite_count', 'coordinates', 'source', 'in_reply_to_screen_name',
-    #           'in_reply_to_user_id', 'is_retweet', 'retweet_count', 'geo', 'created_at', 'place']
-    # writer.writerow(header)
 
     print "Getting tweets..."
 
