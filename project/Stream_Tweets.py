@@ -20,6 +20,7 @@ writer = None
 f = None
 csv_name = ""
 db_name = "sma-proj"
+collection_name = "misleads"
 tweets = None
 
 # Initialize the client for ArangoDB
@@ -208,9 +209,9 @@ def main():
         db = client.database(db_name)
 
     try:
-        tweets = db.create_collection('tweets-' + date_str)
+        tweets = db.create_collection(collection_name)
     except:
-        tweets = db.collection('tweets-' + date_str)
+        tweets = db.collection(collection_name)
 
     tweets.add_hash_index(fields=['tweet_id'])
     tweets.add_hash_index(fields=['user_id'])
@@ -228,37 +229,18 @@ def main():
     tweets.add_geo_index(fields=['geo'])
     tweets.add_geo_index(fields=['coordinates'])
 
-    keyword = ['https://t.co/r8uFthZWBj',
-               'https://t.co/sRHak6gnUT',
-               'https://t.co/DjeMPPHKu4',
-               'https://t.co/xdQ5eOGh14',
-               'https://t.co/plqoSMaixV',
-               'https://t.co/XZDLFK7E0X',
-               'https://t.co/uDxnyXZp1p',
-               'https://t.co/BkhSU8PKfs',
-               'https://t.co/CtX7XQZmZH',
-               'https://t.co/x59B9R3fji',
-               'https://t.co/cQiIXTL5N4']
+    keyword = ['https://t.co/RBoKNShF4R',
+               'https://t.co/SEO4CUuzjq',
+               'https://t.co/1d7odPvUuO',
+               'https://t.co/PDn8QgW2pR',
+               'https://t.co/dDYtCmbrPU',
+               'https://t.co/QALrndA3xc',
+               'https://t.co/sPhLIiVp3d',
+               'https://t.co/KWP7X2aLiN',
+               'https://t.co/TRJVkebsW8',
+               'https://t.co/JSKgunUCz4',
+               'https://t.co/wlP2Sryw5t']
 
-    # # create CSV
-    # csv_name = 'top10'
-    #
-    # csv_name = csv_name + ".csv"
-    #
-    # if not os.path.exists(date_str):
-    #     os.makedirs(date_str)
-    #
-    # f = open(date_str + "/" + csv_name, 'wb')
-    # writer = csv.writer(f, delimiter='|', quoting=csv.QUOTE_MINIMAL)
-    #
-    # print "CSV Name: " + csv_name
-    #
-    # # write information into CSVs
-    # header = ['id', 'user_id', 'user_name', 'text', 'contributors', 'in_reply_to_status_id',
-    #           'favorite_count', 'coordinates', 'source', 'in_reply_to_screen_name',
-    #           'in_reply_to_user_id', 'is_retweet', 'retweet_count', 'geo', 'created_at', 'place']
-    # writer.writerow(header)
-    #
     print "Getting tweets..."
 
     l = StdOutListener()

@@ -4,6 +4,8 @@ import re
 import pprint
 import operator
 
+# MISLEADING news
+
 
 def add_urls(urls, doc):
     """
@@ -60,7 +62,8 @@ def get_top_urls(collection_name):
                 add_urls(urls, doc)
 
     pprint.pprint("Found " + str(tweet_count) + " tweets that match the query.")
-    sorted_x = dict(sorted(urls.items(), key=operator.itemgetter(1), reverse=True)[:10])
+    sorted_x = dict(sorted(urls.items(), key=operator.itemgetter(1), reverse=True)[:20])
+    sorted_x = sorted(sorted_x.items(), key=operator.itemgetter(1), reverse=True)
     pprint.pprint(sorted_x)
 
 if __name__ == '__main__':
