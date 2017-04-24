@@ -167,15 +167,10 @@ class StdOutListener(StreamListener):
         return True
 
     def on_error(self, status):
-        close_csv()
         client.shutdown()
         print status
-
-
-def close_csv():
-    global f
-    print "Closing CSV"
-    f.close()
+        print (time.strftime("%I:%M:%S"))
+        return False
 
 
 def write_tweet(info_list):
@@ -211,7 +206,8 @@ def main():
     try:
         tweets = db.create_collection(collection_name)
     except:
-        tweets = db.collection(collection_name)
+        db.delete_collection(collection_name)
+        tweets = db.create_collection(collection_name)
 
     tweets.add_hash_index(fields=['tweet_id'])
     tweets.add_hash_index(fields=['user_id'])
