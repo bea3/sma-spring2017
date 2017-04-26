@@ -57,13 +57,13 @@ class StdOutListener(StreamListener):
                 user_name = data['user']['screen_name'] if data['user']['screen_name'] is not None else ""
                 user_name = clean_text(user_name)
             except KeyError:
-                print ("Error with tweet id/screen name: ")
-                pprint.pprint(data)
+                # print ("Error with tweet id/screen name: ")
+                # pprint.pprint(data)
                 user_id = ""
                 user_name = ""
             except:
-                print "Error (not KeyError nor UnicodeEncodeError) with tweet screen name: "
-                pprint.pprint(data)
+                # print "Error (not KeyError nor UnicodeEncodeError) with tweet screen name: "
+                # pprint.pprint(data)
                 user_id = ""
                 user_name = ""
 
@@ -71,12 +71,12 @@ class StdOutListener(StreamListener):
                 text = data['text'] if data['text'] is not None else ""
                 text = clean_text(text)
             except KeyError or UnicodeEncodeError:
-                print ("Error with tweet text: ")
-                pprint.pprint(data)
+                # print ("Error with tweet text: ")
+                # pprint.pprint(data)
                 text = ""
             except:
-                print "Error (not KeyError nor UnicodeEncodeError) with tweet text: "
-                pprint.pprint(data)
+                # print "Error (not KeyError nor UnicodeEncodeError) with tweet text: "
+                # pprint.pprint(data)
                 text = ""
 
             try:
@@ -103,8 +103,8 @@ class StdOutListener(StreamListener):
                 source = data['source'].encode("utf-8") if data['source'] is not None else ""
                 source = clean_text(source)
             except KeyError or UnicodeEncodeError:
-                print ("Error with tweet source: ")
-                pprint.pprint(data)
+                # print ("Error with tweet source: ")
+                # pprint.pprint(data)
                 source = ""
 
             try:
@@ -112,12 +112,12 @@ class StdOutListener(StreamListener):
                                                                                        'in_reply_to_screen_name'] is not None else ""
                 in_reply_name = clean_text(in_reply_name)
             except KeyError or UnicodeEncodeError:
-                print ("Error with tweet reply-to-screen-name: ")
-                pprint.pprint(data)
+                # print ("Error with tweet reply-to-screen-name: ")
+                # pprint.pprint(data)
                 in_reply_name = ""
             except:
-                print "Error (not KeyError nor UnicodeEncodeError) with tweet reply-to name: "
-                pprint.pprint(data)
+                # print "Error (not KeyError nor UnicodeEncodeError) with tweet reply-to name: "
+                # pprint.pprint(data)
                 in_reply_name = ""
 
             try:
@@ -197,7 +197,7 @@ def main():
     date_str = time.strftime('%m-%d-%Y')
     date_str = date_str.replace(' ', '-')
 
-    print "Setting up database..."
+    # print "Setting up database..."
     try:
         db = client.create_database(db_name)
     except:
@@ -206,8 +206,7 @@ def main():
     try:
         tweets = db.create_collection(collection_name)
     except:
-        db.delete_collection(collection_name)
-        tweets = db.create_collection(collection_name)
+        tweets = db.collection(collection_name)
 
     tweets.add_hash_index(fields=['tweet_id'])
     tweets.add_hash_index(fields=['user_id'])
@@ -227,17 +226,19 @@ def main():
 
     keyword = ['https://t.co/RBoKNShF4R',
                'https://t.co/SEO4CUuzjq',
-               'https://t.co/1d7odPvUuO',
-               'https://t.co/PDn8QgW2pR',
-               'https://t.co/dDYtCmbrPU',
-               'https://t.co/QALrndA3xc',
-               'https://t.co/sPhLIiVp3d',
-               'https://t.co/KWP7X2aLiN',
-               'https://t.co/TRJVkebsW8',
-               'https://t.co/JSKgunUCz4',
-               'https://t.co/wlP2Sryw5t']
+               'https://t.co/O0xVQdZDkw',
+               'https://t.co/ENPlJ9KnZc',
+               'https://t.co/dhMehoWjdi',
+               'https://t.co/BIgjUQMqYu',
+               'https://t.co/MDsxTHHA1V',
+               'https://t.co/C8HrSJjeFw',
+               'https://t.co/d7OGHbmu71',
+               'https://t.co/6kE6GvulfI',
+               'https://t.co/5BjokX7HQ5',
+               ]
 
-    print "Getting tweets..."
+
+    # print "Getting tweets..."
 
     l = StdOutListener()
     auth = OAuthHandler(consumer_key, consumer_secret)

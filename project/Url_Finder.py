@@ -6,6 +6,7 @@ import pprint
 import sys
 from arango import ArangoClient
 import top_urls
+import time
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -178,6 +179,8 @@ class StdOutListener(StreamListener):
     def on_error(self, status):
         top_urls.get_top_urls(collection_name)
         print status
+        print (time.strftime("%I:%M:%S"))
+        return False
 
 
 def clean_text(text):
@@ -204,7 +207,8 @@ def main():
     try:
         trump = db.create_collection(collection_name)
     except:
-        trump = db.collection(collection_name)
+        db.delete_collection(collection_name)
+        trump = db.create_collection(collection_name)
 
     trump.add_hash_index(fields=['tweet_id'])
     trump.add_hash_index(fields=['user_id'])
