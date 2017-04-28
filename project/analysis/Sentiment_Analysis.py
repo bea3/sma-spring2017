@@ -2,7 +2,6 @@ import csv
 import json
 import os
 import pprint
-
 import nltk
 
 negative_tweets = []
@@ -30,23 +29,20 @@ def clean_tweets(tweets):
 
 
 def parse_training_data():
-    print "Parsing Training data..."
+    limit = 50000
+    print "Parsing Training data with " + str(limit) + " tweets..."
     dir = os.path.dirname(__file__)
     filename = os.path.join(dir, '../analysis/sentiment-analysis-dataset.csv')
     with open(filename, 'rb') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
-        pos_count = 0
-        neg_count = 0
         for row in reader:
-            if pos_count == 100000 and neg_count == 100000:
+            if len(negative_tweets) >= limit and len(positive_tweets) >= limit:
                 break
             else:
                 if row[1] == "0":
-                    neg_count += 1
                     neg_tweet = (row[3], "negative")
                     negative_tweets.append(neg_tweet)
                 elif row[1] == "1":
-                    pos_count += 1
                     pos_tweet = (row[3], "positive")
                     positive_tweets.append(pos_tweet)
 
@@ -71,7 +67,8 @@ if __name__ == "__main__":
     negative_tweets, positive_tweets = parse_training_data()
     all_tweets = parse_dataset()
 
-    # layout and train dat    print "Gathering training data..."
+    # layout and train data
+    print "Gathering training data..."
     tweets = []
     for (words, sentiment) in positive_tweets + negative_tweets:
         words_filtered = [e.lower() for e in words.split() if
