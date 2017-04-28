@@ -1,12 +1,14 @@
-from tweepy.streaming import StreamListener
-from tweepy import OAuthHandler
-from tweepy import Stream
 import json
 import pprint
 import sys
-from arango import ArangoClient
-import top_urls
 import time
+
+from arango import ArangoClient
+from tweepy import OAuthHandler
+from tweepy import Stream
+from tweepy.streaming import StreamListener
+
+import top_urls
 
 reload(sys)
 sys.setdefaultencoding('utf8')
