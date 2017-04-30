@@ -6,19 +6,12 @@ import os
 import pprint
 
 # data to plot
-n_groups = 11
-# rt_count = (90, 55, 40, 65, 90, 55, 40, 65, 90, 55, 40)
-fave_count = (773, 62, 54, 20, 90, 55, 40, 65, 90, 55, 40)
+n_groups = 4
+# gathered manually
+fave_count = (773, 223, 580, 421)
 
 keyword = ['RBoKNShF4R',
-           'SEO4CUuzjq',
-           'O0xVQdZDkw',
-           'ENPlJ9KnZc',
-           'dhMehoWjdi',
-           'BIgjUQMqYu',
-           'MDsxTHHA1V',
            'C8HrSJjeFw',
-           'd7OGHbmu71',
            '6kE6GvulfI',
            '5BjokX7HQ5']
 
@@ -46,24 +39,20 @@ with open(filename) as data_file:
                     url = url.replace("https://t.co/", '')
                     if url in all_url_dicts:
                         all_url_dicts[url] += 1
+                    else:
+                        if url == 'SEO4CUuzjq':
+                            all_url_dicts['RBoKNShF4R'] += 1
+                        elif url == 'd7OGHbmu71':
+                            all_url_dicts['5BjokX7HQ5'] += 1
         else:
             pass
 
 pprint.pprint(all_url_dicts)
 
 rt_count = (all_url_dicts['RBoKNShF4R'],
-           all_url_dicts['SEO4CUuzjq'],
-           all_url_dicts['O0xVQdZDkw'],
-           all_url_dicts['ENPlJ9KnZc'],
-           all_url_dicts['dhMehoWjdi'],
-           all_url_dicts['BIgjUQMqYu'],
-           all_url_dicts['MDsxTHHA1V'],
            all_url_dicts['C8HrSJjeFw'],
-           all_url_dicts['d7OGHbmu71'],
            all_url_dicts['6kE6GvulfI'],
            all_url_dicts['5BjokX7HQ5'])
-
-
 
 # create plot
 fig, ax = plt.subplots()
@@ -85,17 +74,11 @@ plt.xlabel('Tracked URLs')
 plt.ylabel('Count')
 plt.title('Retweet Count and Favorite Count by Tracked URL')
 plt.xticks(index + bar_width,
-           ('RBoKNShF4R',
-            'SEO4CUuzjq',
-            'O0xVQdZDkw',
-            'ENPlJ9KnZc',
-            'dhMehoWjdi',
-            'BIgjUQMqYu',
-            'MDsxTHHA1V',
-            'C8HrSJjeFw',
-            'd7OGHbmu71',
-            '6kE6GvulfI',
-            '5BjokX7HQ5'))
+           ('Jezebel',
+            'Huffington Post',
+            'Sarah Ferris',
+            'Independent'),
+           rotation='horizontal',)
 plt.legend()
 
 plt.tight_layout()

@@ -3,6 +3,7 @@ import datetime
 import json
 import os
 import re
+import pprint
 
 import pandas as pd
 import plotly.graph_objs as go
@@ -174,12 +175,27 @@ def write_to_csv(filename, all_url_dicts, all_dates):
     print "Prepping for Plotly..."
     df = pd.read_csv(filename)
 
-    all_datas = []
-    for k in keyword:
-        data = go.Scatter(x=df['date'], y=df[k], name=k)
-        all_datas.append(data)
+    xlabels = ['Jezebel',
+            'Jezebel',
+            'Twentytwowords',
+            'ViralFactAmazing - Melania Trump',
+            'Dashing Summit',
+            'ViralFactAmazing - Affairs',
+            'ViralFactAmazing - Mia Khalifa',
+            'Huffington Post',
+            'Sarah Ferris',
+            'Huffington Post',
+            'Independent']
 
-    py.plot(all_datas)
+    all_datas = []
+    for x in range(len(keyword)):
+        k = keyword[x]
+        l = xlabels[x]
+        data = go.Scatter(x=df['date'], y=df[k], name=l)
+        all_datas.append(data)
+        pprint.pprint(data)
+
+    # py.plot(all_datas)
 
 
 if __name__ == '__main__':
